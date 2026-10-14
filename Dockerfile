@@ -1,5 +1,5 @@
 # Stage 1: compile the CV
-FROM texlive/texlive:latest-small AS build
+FROM texlive/texlive:latest AS build
 WORKDIR /cv
 COPY src/ src/
 RUN mkdir -p /cv/out && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/cv/out src/Nandakishore_Vinayakrishnan_CV.tex \
