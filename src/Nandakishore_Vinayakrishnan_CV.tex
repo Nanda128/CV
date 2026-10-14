@@ -1,0 +1,156 @@
+%=============================================================
+% Nandakishore Vinayakrishnan - CV
+% ATS-friendly, single-column, LaTeX resume
+%=============================================================
+\documentclass[10pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter}                     % clean, professional, widely-embedded serif
+\usepackage[margin=0.55in,top=0.42in,bottom=0.42in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks,colorlinks=true,linkcolor=darkblue,urlcolor=darkblue]{hyperref}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{darkgray}{RGB}{60,60,60}
+
+% ---------- Page setup ----------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedbottom
+
+% ---------- Section formatting (plain text headings -> ATS-safe) ----------
+\titleformat{\section}
+  {\large\bfseries\color{black}}
+  {}{0em}{}
+  [\vspace{-3pt}\titlerule\vspace{1pt}]
+\titlespacing*{\section}{0pt}{6pt}{2pt}
+
+% ---------- List formatting ----------
+\setlist[itemize]{leftmargin=14pt, itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt}
+
+% ---------- Custom commands ----------
+% Entry heading: Role/Title -- left, Dates -- right
+\newcommand{\cvEntry}[4]{%
+  \noindent\textbf{#1} \hfill \textbf{\small #2} \\
+  \textit{#3} \hfill \textit{\small #4} \\[-2pt]
+}
+
+\newcommand{\cvProject}[3]{%
+  \noindent\textbf{#1} \hfill \textit{\small #2} \\
+  {\small #3} \\[-2pt]
+}
+
+\newcommand{\cvSkillRow}[2]{%
+  \textbf{#1:} #2 \\[2pt]
+}
+
+\begin{document}
+
+% ================= HEADER =================
+\begin{center}
+    {\LARGE \textbf{Nandakishore Vinayakrishnan}}\\[4pt]
+    \small
+    Limerick, Ireland \quad $\vert$ \quad
+    \href{tel:+353899526496}{+353 89 952 6496} \quad $\vert$ \quad
+    \href{mailto:nandakishorevinay@gmail.com}{nandakishorevinay@gmail.com} \quad $\vert$ \quad
+    \href{https://www.linkedin.com/in/nandakishore-vinay}{linkedin.com/in/nandakishore-vinay} \quad $\vert$ \quad
+    \href{https://github.com/Nanda128}{github.com/Nanda128}
+\end{center}
+
+\vspace{-6pt}
+
+% ================= SUMMARY =================
+\section*{Summary}
+\small
+Software engineering student with hands-on experience building GUIs on top of complex, data-heavy engineering systems, including a real-time supervisory dashboard for a live multi-agent simulation and a graphical front end for a command-line test-data engine.
+Proficient in React, Angular, TypeScript, Python, and Java, with a track record of turning raw technical data into clear, real-time interfaces for both engineers and non-technical stakeholders.
+Recognised by peers for ability to articulate complex technical concepts to diverse audiences.
+
+\vspace{1pt}
+
+% ================= EDUCATION =================
+\section{Education}\label{sec:education}
+\cvEntry{B.Sc./M.Sc. Immersive Software Engineering}{2023 - 2027 (Expected)}{University of Limerick, Ireland}{}
+\vspace{2pt}
+\small
+Relevant coursework: Human-Centric Computing, Data-Centric Computing, Computation \& Architecture, Effectively Building Software with Others, Problem-Solving with Computers \\
+Achievement: 99\% in Year 12 Board Examinations, Computer Science
+
+\vspace{2pt}
+
+% ================= EXPERIENCE =================
+\section{Experience}\label{sec:experience}
+
+\cvEntry{Software Architect (Placement)}{6 months}{Health Service Executive (HSE), Ireland}{}
+\begin{itemize}
+    \item Designed and introduced a GUI layer over a command-line longitudinal health-test data-generation engine for the HSE mobile app, turning a purely engineering-facing tool into an accessible interface for its intended users.
+    \item Applied user-centred design practices to make backend-generated data legible to non-technical stakeholders within the app team.
+\end{itemize}
+
+\vspace{1.5pt}
+
+\cvEntry{Front-End \& Back-End Developer (Residency)}{6 months}{General Motors - Digital Twin Project}{}
+\begin{itemize}
+    \item Contributed to TypeScript front-end and Java Spring Boot back-end development on GM's Digital Twin Project, gaining hands-on experience with Agile software delivery in a corporate environment.
+    \item Collaborated cross-functionally with engineering teams, building foundational experience in enterprise software practices.
+\end{itemize}
+
+\vspace{1.5pt}
+
+\cvEntry{DevOps Team Member (Placement)}{10 weeks}{Becton Dickinson - BD Synapsys Team}{}
+\begin{itemize}
+    \item Diagnosed issues within Azure CI/CD pipelines and performed preventative maintenance to improve build and release reliability for the BD Synapsys platform.
+\end{itemize}
+
+\vspace{2pt}
+
+% ================= PROJECTS =================
+\section{Projects}\label{sec:projects}
+
+\cvProject{BEACON - Final Year Project}{React, TypeScript, HTML5 Canvas API \textbar{} \href{https://github.com/Nanda128/Beacon}{github.com/Nanda128/Beacon}}{}
+\begin{itemize}
+    \item Designing and building a real-time, browser-based supervisory dashboard for autonomous drone-swarm maritime search-and-rescue operations, presenting live multi-drone telemetry, sensor detections, and a metrics dashboard on a single screen.
+    \item Built a four-tier, severity-based alert system (aviation EICAS-style) and applied HCI principles (Proximity Compatibility Principle, WCAG 2.2 AA accessibility) to reduce operator workload when monitoring several live data streams at once.
+    \item Implemented data export (JSON/CSV) and a management view for reviewing historical run data and performance trends over time.
+\end{itemize}
+
+\vspace{1.5pt}
+
+\cvProject{BoltLock - IoT Smart Lock System}{C/C++, ESP-IDF, MQTT, Python \textbar{} \href{https://github.com/Nanda128/BoltLock}{github.com/Nanda128/BoltLock}}{}
+\begin{itemize}
+    \item Co-developed (2-person team) a WiFi-enabled smart-lock controller on a DFRobot FireBeetle ESP32 using the ESP-IDF framework, with real-time, bidirectional MQTT communication for remote lock/unlock control and live status feedback.
+    \item Designed multithreaded firmware separating real-time control logic from network/agent tasks, with Wi-Fi/MQTT auto-reconnect and persistent event logging to NVS flash to keep the device reliable over unstable connections.
+    \item Built companion Python tooling (CLI and test scripts) to exercise and validate the MQTT command interface.
+\end{itemize}
+
+\vspace{1.5pt}
+
+\cvProject{CloudWorx - Post-Quantum File-Storage Backend}{Python, Flask \textbar{} \href{https://github.com/Nanda128/CloudWorx-Backend}{github.com/Nanda128/CloudWorx-Backend}}{}
+\begin{itemize}
+    \item Designed and built a Flask API backend for a secure, post-quantum-cryptography remote file-storage system, portable to any Python-capable host, over a two-week sprint.
+\end{itemize}
+
+\vspace{2pt}
+
+% ================= SKILLS =================
+\section{Technical Skills}\label{sec:technical-skills}
+\small
+\cvSkillRow{Front-End \& GUI}{React, Angular, JavaFX, TypeScript, JavaScript, HTML/CSS, UI/UX Design, User-Centered Design}
+\cvSkillRow{Languages}{Java, Python, SQL, C++, Assembly}
+\cvSkillRow{Back-End \& Data}{Spring / Spring Boot, Flask, SQLite, Python ORM, Neural Networks / Machine Learning}
+\cvSkillRow{Tools \& Practices}{Git, Maven, Azure (CLI \& PowerShell), Infrastructure-as-Code, Agile, Clean Code}
+
+% ================= LEADERSHIP / VOLUNTEERING =================
+\section{Leadership \& Volunteering}\label{sec:leadership-&-volunteering}
+\small
+UL Computer Society - Events Officer \& Public Relations Officer (130+ volunteer hours); active member \\
+SISTEM Tech Conference 2025/26 - Public Relations Team volunteer \\[3pt]
+\textbf{Languages:} Fluent English; conversational Arabic, Hindi, and Malayalam
+
+\end{document}
