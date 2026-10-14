@@ -1,5 +1,6 @@
 # Stage 1: compile the CV
-FROM texlive/texlive:latest AS build
+FROM debian:stable-slim AS build
+RUN apt-get update && apt-get install -y --no-install-recommends       texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended  && rm -rf /var/lib/apt/lists/*
 WORKDIR /cv
 COPY src/ src/
 RUN mkdir -p /cv/out && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/cv/out src/Nandakishore_Vinayakrishnan_CV.tex \
