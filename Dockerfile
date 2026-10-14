@@ -2,7 +2,7 @@
 FROM texlive/texlive:latest-small AS build
 WORKDIR /cv
 COPY src/ src/
-RUN pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/cv/out src/Nandakishore_Vinayakrishnan_CV.tex \
+RUN mkdir -p /cv/out && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/cv/out src/Nandakishore_Vinayakrishnan_CV.tex \
  && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/cv/out src/Nandakishore_Vinayakrishnan_CV.tex \
  && mv /cv/out/Nandakishore_Vinayakrishnan_CV.pdf /cv/out/cv.pdf
 
