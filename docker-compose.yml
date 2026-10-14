@@ -4,3 +4,11 @@ services:
     expose:
       - "80"
     restart: unless-stopped
+    networks:
+      - dokploy-network
+    labels:
+      - traefik.docker.network=dokploy-network
+
+networks:
+  dokploy-network:
+    external: true
