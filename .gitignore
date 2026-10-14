@@ -3,6 +3,7 @@
 auxil/
 out/
 .idea/
+CV.iml
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
